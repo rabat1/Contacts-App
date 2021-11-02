@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { View, Text, Image, Switch } from 'react-native'
 import styles from './styles'
 import Container from '../common/container'
@@ -19,7 +19,7 @@ const CreateContactComponent = ({
     return (
         <View style={styles.container}>
             <Container>
-                <Image source={{uri:localFile?.path ||DEFAULT_IMAGE_URI}} width={150} height={150} 
+                <Image source={{uri:localFile?.path ||localFile||DEFAULT_IMAGE_URI}} width={150} height={150} 
                 style={styles.imageView}
                 />
                 <TouchableOpacity onPress={openSheet}>
@@ -30,21 +30,25 @@ const CreateContactComponent = ({
                 onChangeText({name:'firstName', value:value})
                 }}
                 error={error?.first_name?.[0]}
+                value={form.first_name||""||form.firstName}
             label='First Name' placeholder="Enter Your First name" />
             <Input
+            value={form.lastName||""}
              onChangeText={(value)=>{
                 onChangeText({name:'lastName', value:value})
                     } }
                     error={error?.last_name?.[0]}
             label='Last Name' placeholder="Enter Your Last name" />
             <Input 
-                    error={error?.phone_number?.[0]}
+                   value={form.phoneNumber||""}
+                   error={error?.phone_number?.[0]}
                label='Phone Number' placeholder="Enter Your Phone No." 
                onChangeText={(value)=>{
                         onChangeText({name:'phoneNumber', value:value})
                }}
                />
             <Input 
+            value={form.country_code||form.countryCode}
                error={error?.country_code?.[0]}
             label='Country Code' placeholder="Enter Your Country code" 
             onChangeText={(value)=>{
@@ -53,7 +57,7 @@ const CreateContactComponent = ({
             />
 
             <Input 
-              
+              value={form.phoneCode}
             label='Phone Code' placeholder="Enter Your Country code" 
             onChangeText={(value)=>{
                      onChangeText({name:'phoneCode', value:value})

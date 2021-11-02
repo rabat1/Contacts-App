@@ -1,17 +1,18 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation, useFocusEffect } from '@react-navigation/core';
-import React, { useEffect} from 'react';
+import React, { useEffect, useRef} from 'react';
 import { TouchableOpacity } from 'react-native';
 import Icon from '../../components/common/Icon';
 import ContactComponent from '../../components/ContactComponent';
 import getContacts from '../../context/actions/contacts/getContacts';
 import {GlobalContext} from '../../context/Provider';
+import {CONTACT_DETAIL} from '../../constants/routeNames'
 const Contactlist = () =>{
     //in container you can specify your own style if dont wanna apply common container style
     const [sortBy, setSortBy] = React.useState(null);
-    const {setOptions, toggleDrawer} = useNavigation();
+    const {setOptions, toggleDrawer, navigate} = useNavigation();
     const [modalVisible, setModalVisible] = React.useState(false);
-
+    const contactsRef = useRef([])
      const {contactsDispatch,contactsState:{
         getContacts:{data,loading} 
         },
@@ -31,6 +32,18 @@ useFocusEffect(React.useCallback(()=>{
         getSettings();
         return()=>{}
     },[]));
+
+useEffect(()=>{
+const prev = contactsRef.current;
+contactsRef.current= data;
+const newList = contactsRef.current;
+if(newList.length - prev.length === 1){
+    const newContact = newList.find(
+        (item) => !prev.map((i)=> i.id).includes(item.id)
+    );
+    navigate(CONTACT_DETAIL, {item: newContact});
+}
+},[data.length])
 
 React.useEffect(()=>{
         setOptions({headerLeft:()=><TouchableOpacity onPress={()=>{

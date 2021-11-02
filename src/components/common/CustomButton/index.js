@@ -9,6 +9,7 @@ const CustomButton = ({
     secondary,primary,danger,
     loading,
     onPress,
+    style
 }) => {
     const getBgColor=()=>{
         if(disabled){
@@ -26,7 +27,7 @@ const CustomButton = ({
         }
     return (
         <TouchableOpacity onPress={onPress}
-         style={[styles.wrapper,{backgroundColor:getBgColor()}]}>
+         style={[styles.wrapper,{backgroundColor:getBgColor()},style]}>
                 <View style={[styles.loadingSection]}>
                  {loading&& <ActivityIndicator color={primary?colors.blue:colors.secondary}/>}   
                 {title&&<Text style={{color: disabled?'black':colors.white, paddingLeft: loading?5:0}}>{loading ? 'Please wait': title}</Text>}

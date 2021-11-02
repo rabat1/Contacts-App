@@ -1,11 +1,12 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { CONTACT_CREATE, CONTACT_DETAIL, CONTACT_LIST, SETTINGS } from '../constants/routeNames';
+import { CONTACT_CREATE, CONTACT_DETAIL, CONTACT_LIST, LOGOUT, SETTINGS } from '../constants/routeNames';
 import Contactlist from '../screens/Contacts';
 import ContactDetails from '../screens/ContactDetails';
 import CreateContact from '../screens/CreateContact';
 import Setting from '../screens/Settings';
 import { Text } from 'react-native';
+import Logout from '../screens/Logout';
 
  
 const HomeNavigator=()=>{
@@ -18,6 +19,8 @@ const HomeNavigator=()=>{
     <HomeStack.Screen name={CONTACT_DETAIL} component={ContactDetails}></HomeStack.Screen>
     <HomeStack.Screen name={CONTACT_CREATE} component={CreateContact}></HomeStack.Screen>
     <HomeStack.Screen name={SETTINGS} component={Setting}></HomeStack.Screen>
+    <HomeStack.Screen name={LOGOUT} component={Logout}></HomeStack.Screen>
+  
 </HomeStack.Navigator>
 )
 }

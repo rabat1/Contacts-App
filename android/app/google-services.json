@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "670012254522",
+    "project_id": "contactapp-9ee5e",
+    "storage_bucket": "contactapp-9ee5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670012254522:android:5e40fc427e8f1cf01f0803",
+        "android_client_info": {
+          "package_name": "com.tenhrtutorialapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "670012254522-mtk8muiqmg0m85hs1s9ik8imoqecmd1r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxyubJN-62K6GZSChUo-Kf1xMFwrX2Qbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "670012254522-mtk8muiqmg0m85hs1s9ik8imoqecmd1r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
