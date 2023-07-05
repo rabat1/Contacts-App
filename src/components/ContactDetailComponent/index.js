@@ -21,11 +21,11 @@ const ContactDetailComponent = ({contact, localFile,uploadSucceeded, openSheet,s
               (
               <ImageComponent src={contact_picture || localFile?.path} />
               )}
-        
-{!contact_picture && !uploadSucceeded && (
-<View style={{alignItems:'center', paddingVertical:20,}}>
-<Image source={{uri:localFile?.path||DEFAULT_IMAGE_URI}} width={150} height={150} 
-                style={style.imageView}
+                
+        {!contact_picture && !uploadSucceeded && (
+        <View style={{alignItems:'center', paddingVertical:20,}}>
+        <Image source={{uri:localFile?.path||DEFAULT_IMAGE_URI}} width={150} height={150} 
+                        style={style.imageView}
                 />
                 <TouchableOpacity onPress={()=>{openSheet();}}>
                   

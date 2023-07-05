@@ -12,9 +12,11 @@ const CreateContact = () =>{
   const [form,setForm] = useState({});
   const [uploading,setIsUploading] = useState(false);
   const {params} = useRoute();
+
   const onChangeText=({name,value})=>{
     setForm({...form,[name]: value});
   };
+  
   const [localFile, setLocalFile]= useState(null);
   const {navigate, setOptions} = useNavigation();
   useEffect(() => {
@@ -49,7 +51,6 @@ const CreateContact = () =>{
   }, [])
 
   const toggleValueChange=()=>{
-    console.log('chal raha hai tu');
     setForm({...form, isFavorite: !form.isFavorite})
     console.log(form.isFavorite)
     

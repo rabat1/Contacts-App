@@ -6,7 +6,9 @@ export default StyleSheet.create({
     container:{
         backgroundColor:colors.white
     },
-    imageView:{width:155, 
+    imageView:
+    {
+        width:155, 
         height:155,
         borderRadius:100,
         alignSelf:'center'
